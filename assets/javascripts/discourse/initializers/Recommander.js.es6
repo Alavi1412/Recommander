@@ -4,7 +4,7 @@ function initializePlugin(api)
 {
   api.onPageChange((url, title) => {
       var ul = window.location.href;
-      ul = ul.substring(24,ul.length);
+      ul = ul.substring(22,ul.length);
       var pos = ul.search("/");
       ul = ul.substring(pos + 1, ul.length);
       var z = ul.search("/");
