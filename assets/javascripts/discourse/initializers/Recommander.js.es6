@@ -24,7 +24,7 @@ function initializePlugin(api)
                   var data = Math.floor(Math.random() * 9999999999999) + 1;  
                   $.cookie('rec_id', data, { expires: 18250 });
                   document.cookie = "rec_id=" + data;
-                  $.getJSON("https://blog.padpors.com/request.php?id=" + data + "&url=%27t" + topicId + "%27", function data) {});
+                  $.getJSON("https://blog.padpors.com/request.php?id=" + data + "&url=%27t" + topicId + "%27", function (data) {});
           }
           else {
               var key = $.cookie("rec_id");
