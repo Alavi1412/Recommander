@@ -4,7 +4,7 @@ function initializePlugin(api)
 {
   api.onPageChange((url, title) => {
       var ul = window.location.href;
-      ul = ul.substring(22,ul.length);
+      ul = ul.substring(24,ul.length);
       var pos = ul.search("/");
       ul = ul.substring(pos + 1, ul.length);
       var z = ul.search("/");
@@ -16,21 +16,19 @@ function initializePlugin(api)
       }
       var user = Discourse.User.currentProp('id');
       if(user){
-          $.getJSON("http://52.32.152.113:5000/?id=" + user + "&url=%27t"+ topicId + "%27", function (data) {
+          $.getJSON("http://blog.padpors.com/request.php?id=" + user + "&url=%27t"+ topicId + "%27", function (data) {
           });
       }
       else {
           if ($.cookie("rec_id") == null) {
-              $.getJSON('http://185.83.114.53:9095/keygen?outputType=pure', function (data) {
+                  var data = Math.floor(Math.random() * 9999999999999) + 1;  
                   $.cookie('rec_id', data, { expires: 18250 });
                   document.cookie = "rec_id=" + data;
-                  $.getJSON("http://52.32.152.113:5000/?id=" + data + "&url=%27t" + topicId + "%27", function (data) {
-                  });
-              });
+                  $.getJSON("https://blog.padpors.com/request.php?id=" + data + "&url=%27t" + topicId + "%27", function data) {});
           }
           else {
               var key = $.cookie("rec_id");
-              $.getJSON("http://52.32.152.113:5000/?id=" + key + "&url=%27t" + topicId + "%27", function (data) {
+              $.getJSON("https://blog.padpors.com/request.php?id=" + key + "&url=%27t" + topicId + "%27", function (data) {
               });
           }
       }
