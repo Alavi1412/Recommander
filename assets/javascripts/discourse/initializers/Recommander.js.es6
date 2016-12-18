@@ -16,7 +16,7 @@ function initializePlugin(api)
       }
       var user = Discourse.User.currentProp('id');
       if(user){
-          $.getJSON("http://blog.padpors.com/request.php?id=" + user + "&url=%27t"+ topicId + "%27", function (data) {
+          $.getJSON("https://blog.padpors.com/request.php?id=" + user + "&url=%27t"+ topicId + "%27", function (data) {
           });
       }
       else {
