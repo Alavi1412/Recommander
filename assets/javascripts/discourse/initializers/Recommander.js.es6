@@ -16,7 +16,7 @@ function initializePlugin(api)
       }
       var user = Discourse.User.currentProp('id');
       if(user){
-          $.getJSON("https://blog.padpors.com/request.php?id=" + user + "&url=%27t"+ topicId + "%27", function (data) {
+          $.getJSON("https://padpors.com/recommender/ingest?id=" + user + "&url=%27t"+ topicId + "%27", function (data) {
           });
       }
       else {
@@ -24,11 +24,11 @@ function initializePlugin(api)
                   var data = Math.floor(Math.random() * 9999999999999) + 1;  
                   $.cookie('rec_id', data, { expires: 18250 });
                   document.cookie = "rec_id=" + data;
-                  $.getJSON("https://blog.padpors.com/request.php?id=" + data + "&url=%27t" + topicId + "%27", function (data) {});
+                  $.getJSON("https://padpors.com/recommender/ingest?id=" + data + "&url=%27t" + topicId + "%27", function (data) {});
           }
           else {
               var key = $.cookie("rec_id");
-              $.getJSON("https://blog.padpors.com/request.php?id=" + key + "&url=%27t" + topicId + "%27", function (data) {
+              $.getJSON("https://padpors.com/recommender/ingest?id=" + key + "&url=%27t" + topicId + "%27", function (data) {
               });
           }
       }
