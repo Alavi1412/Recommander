@@ -16,7 +16,7 @@ function initializePlugin(api)
       }
       var user = Discourse.User.currentProp('id');
       if(user){
-        if(!topicId && user !=1262 && user != 1 && user !=2)
+        if(!topicId && user != 1262 && user != 1 && user !=2 && user != 1243 && user != 9 && user != 1248 && user != 12451)
           $.getJSON("https://padpors.com/recommender/ingest?id=" + user + "&url=%27t"+ topicId + "%27", function (data) {
           });
       }
