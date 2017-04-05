@@ -22,7 +22,7 @@ function initializePlugin(api)
     {
       topicId = topicId.substring(0,posQ);
     }
-      if(user && user != 1262 && user != 1 && user !=2 && user != 1243 && user != 9 && user != 1248 && user != 1245 && posT > 1){
+      if(user && user != 1262 && user != 1297 && user != 1 && user !=2 && user != 1243 && user != 9 && user != 1248 && user != 1245 && posT > 1){
           $.getJSON("https://padpors.com/recommender/ingest?id=" + user + "&url=%27t"+ topicId + "%27", function (data) {
           });
       }
