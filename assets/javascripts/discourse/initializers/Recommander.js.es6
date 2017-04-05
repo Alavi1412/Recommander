@@ -4,6 +4,7 @@ function initializePlugin(api)
 {
   api.onPageChange((url, title) => {
       var ul = window.location.href;
+      var completeURL = window.location.href;
       ul = ul.substring(22,ul.length);
       var pos = ul.search("/");
       ul = ul.substring(pos + 1, ul.length);
@@ -15,7 +16,7 @@ function initializePlugin(api)
           topicId = ul.substring(0, ul.length);
       }
       var user = Discourse.User.currentProp('id');
-      var posT = ul.search("/t/");
+      var posT = completeURL.search("/t/");
       var posQ = topicId.indexOf("?");
     if(posQ > 1)
     {
