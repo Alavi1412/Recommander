@@ -15,7 +15,13 @@ function initializePlugin(api)
           topicId = ul.substring(0, ul.length);
       }
       var user = Discourse.User.currentProp('id');
-      if(user && user != 1262 && user != 1 && user !=2 && user != 1243 && user != 9 && user != 1248 && user != 12451){
+      var posT = ul.search("/t/");
+      var posQ = topicId.indexOf("?");
+    if(posQ > 1)
+    {
+      topicId = topicId.substring(0,posQ);
+    }
+      if(user && user != 1262 && user != 1 && user !=2 && user != 1243 && user != 9 && user != 1248 && user != 1245 && posT > 1){
           $.getJSON("https://padpors.com/recommender/ingest?id=" + user + "&url=%27t"+ topicId + "%27", function (data) {
           });
       }
@@ -24,12 +30,18 @@ function initializePlugin(api)
                   var data = Math.floor(Math.random() * 9999999999999) + 1;  
                   $.cookie('rec_id', data, { expires: 18250 });
                   document.cookie = "rec_id=" + data;
+                if(posT > 1)
+                {
                   $.getJSON("https://padpors.com/recommender/ingest?id=" + data + "&url=%27t" + topicId + "%27", function (data) {});
+                }
           }
           else {
               var key = $.cookie("rec_id");
+            if(posT > 1)
+            {
               $.getJSON("https://padpors.com/recommender/ingest?id=" + key + "&url=%27t" + topicId + "%27", function (data) {
               });
+            }
           }
       }
   });
