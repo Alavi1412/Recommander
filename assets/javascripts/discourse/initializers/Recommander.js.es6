@@ -26,7 +26,7 @@ function initializePlugin(api)
           $.getJSON("https://padpors.com/recommender/ingest?id=" + user + "&url=%27t"+ topicId + "%27", function (data) {
           });
       }
-      else {
+      else if(user != 1262 && user != 1297 && user != 1 && user !=2 && user != 1243 && user != 9 && user != 1248 && user != 1245 && posT > 1){
           if ($.cookie("rec_id") == null) {
                   var data = Math.floor(Math.random() * 9999999999999) + 1;  
                   $.cookie('rec_id', data, { expires: 18250 });
